@@ -4,7 +4,7 @@ window.onload = function(){
       audioEl = (function(){
 
     var tag = document.createElement('audio');
-        tag.src = "https://cdn.rawgit.com/moczka/assetloader/a95e24bd/assets/sounds/victory.mp3";
+        tag.src = "audio/bon-jovi.mp3";
 
         return tag;
 
