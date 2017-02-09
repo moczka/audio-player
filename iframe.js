@@ -1,27 +1,33 @@
 window.onload = function(){
 
   var audioIcon = document.getElementById('audioIcon'),
-      audioEl = (function(){
+      loadBtn = document.getElementById('load'),
+      inputURL = document.getElementById('audio-url'),
+      audioTag = document.createElement('audio');
+      audioTag.src = "https://cdn.rawgit.com/moczka/assetloader/a95e24bd/assets/sounds/victory.mp3";
 
-    var tag = document.createElement('audio');
-        tag.src = "audio/bon-jovi.mp3";
+      audioTag.oncanplaythrough = function(){
+        audioIcon.className = "loaded";
+        audioIcon.addEventListener('mouseover', handleHover, false);
+      };
 
-        return tag;
+      function handleHover(){
+        audioTag.play();
+        console.log("Playing song");
+      }
 
-  })();
+      loadBtn.onclick = function(){
 
-  window.AUDIO = audioEl;
+        if(!inputURL.value) return;
 
-  audioEl.oncanplaythrough = function(){
+            audioIcon.removeEventListener('mouseover', handleHover, false);
+            audioIcon.className = "loading";
+            audioTag.src = inputURL.value;
 
-    audioIcon.className = "loaded";
-    audioIcon.addEventListener('mouseover', handleHover, false);
 
-  };
+            console.log(audioTag);
+            console.log(inputURL.value);
 
-  function handleHover(){
-    audioEl.play();
-    console.log("hello");
-  }
+      };
 
 };

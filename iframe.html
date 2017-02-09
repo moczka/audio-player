@@ -6,6 +6,8 @@
     div{
       width: 50px;
       height: 50px;
+    }
+    .loading{
       background-color: #ff0000;
     }
     .loaded{
@@ -14,7 +16,11 @@
   </style>
 </head>
 <body>
-  <div id="audioIcon">
+  <div id="audioIcon" class="loading">
   </div>
+  <br />
+  <input type="text" id="audio-url" />
+  <br />
+  <button id="load">Load</button>
 </body>
 </html>
